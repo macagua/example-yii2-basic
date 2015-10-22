@@ -91,4 +91,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionSaludo()
+    {
+        //return $this->render('saludo', ['saludo'=>'Hola mundo']);
+        return $this->render('saludo', ['hola'=>'Hola', 'mundo'=>' Mundo']);
+    }
 }
