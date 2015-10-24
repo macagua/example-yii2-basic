@@ -2,16 +2,18 @@
 
 namespace app\controllers;
 
+use Yii;
+
 class PostsController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-        //echo 1;
-        $posts = \app\models\Post::find()->all();
-        foreach($posts as $post)
+        $model = new \app\models\Post();
+        if ($model->load(Yii::$app->request->post()) && $model->validate())
         {
-            //print_r($post);
-            echo $post->id . ", " . $post->title . ", " . $post->content . "<br><br> ";
+            $model->save();
+        } else {
+            return $this->render("add", ["model" => $model]);
         }
     }
 }
