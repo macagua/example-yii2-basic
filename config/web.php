@@ -43,6 +43,22 @@ $config = [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                // log by Email
+                [
+                    'class' => 'yii\log\EmailTarget',
+                    'mailer' =>'mailer',
+                    'levels' => ['error', 'warning'],
+                    'message' => [
+                        'from' => [$params['adminEmail']],
+                        'to' => ['TO_MAIL_ACCOUNT@example.com'],
+                        //'subject' => 'ERROR log from yii2 basic webapp',
+                        'subject' => sprintf('[%s] Application Log', $_SERVER['SERVER_NAME'])
+                    ],
+                    'except' => [
+                        //'yii\web\HttpException:404',
+                        //'yii\web\HttpException:403',
+                    ],
+                ],
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
