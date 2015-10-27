@@ -39,8 +39,14 @@ $config = [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
+                // log by Filesystem
                 [
                     'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+                // log by Syslog
+                [
+                    'class' => 'yii\log\SyslogTarget',
                     'levels' => ['error', 'warning'],
                 ],
                 // log by Email
