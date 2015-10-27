@@ -19,7 +19,7 @@ class MailController extends Controller
         ->attachContent("Archivo adjunto al vuelo", ['fileName' => 'notas.txt', 'contentType' => 'text/plain'])
         ->attach('imgs/yii2framework.jpg')
         ->setFrom('FROM_MAIL_ACCOUNT@gmail.com')
-        ->setTo('TO_MAIL_ACCOUNT@gmail.com')
+        ->setTo('TO_MAIL_ACCOUNT@example.com')
         ->setSubject('Mensaje subject')
         ->send();
     }
