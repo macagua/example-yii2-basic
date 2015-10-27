@@ -10,6 +10,11 @@ use \yii\web\Controller;
  */
 class LangController extends Controller
 {
+    public function init()
+    {
+        \Yii::$app->language = \Yii::$app->session['lang'];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
