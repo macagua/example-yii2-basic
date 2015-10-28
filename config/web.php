@@ -4,6 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => "Yii2 basic webapp",
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     // default language spanish
